@@ -7,3 +7,11 @@ Free CSS template was used (http://www.freecsstemplates.org, Creative Commons At
 1. Gems required: tabs_on_rails
 2. Mail accaunt shold be configured in envieronment.rb
 3. Database should be configured
+
+
+tested on 
+Rails 3.0.9
+ruby 1.8.7 (2011-02-18 patchlevel 334) [i686-linux]
+
+
+
