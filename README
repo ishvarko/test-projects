@@ -1,0 +1,9 @@
+Aleksandr Antonenko
+Test Rails Project
+
+Free CSS template was used (http://www.freecsstemplates.org, Creative Commons Attribution 2.5 License)
+
+
+1. Gems required: tabs_on_rails
+2. Mail accaunt shold be configured in envieronment.rb
+3. Database should be configured
