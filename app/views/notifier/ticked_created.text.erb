@@ -1,0 +1,5 @@
+Dear <%=  @ticket.customer_name %>
+
+Your issue # <%= @ticket.number %> is created.  Our staff will solve it ASAP.
+We will send you separate e-mail when issue will be updated.
+You can review your ticket at:  <%=  $SITE_URL + url_for(:controller => "tickets",:action => "edit", :id => @ticket.id, :only_path => "false")%>

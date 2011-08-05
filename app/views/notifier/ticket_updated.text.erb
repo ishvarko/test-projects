@@ -1,0 +1,7 @@
+Dear <%=  @ticket.customer_name %>
+
+The issue # <%= @ticket.number %> is updated.
+Owner: <%= get_owner_by_id(@ticket.owner) %>
+Status: <%= get_status_by_id(@ticket.status) %>
+<%=  get_owner_by_id(@change.user) %> replied to your ticket
+Reply Text: <%= @change.reply_text %>

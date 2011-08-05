@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Support Issue Tracking - OnApp</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="logo">
+	<h1><a href='/'>Support Issue Tracking - OnApp</a></h1>
+         <div class="user_menu">
+    <% if session[:user_id] %>
+    You are logged in as <b><%= session[:name] %></b> | <%= button_to 'Logout' , logout_path, :method => :delete %>
+    <% else %>
+      You are not logged in, <%= link_to "Login", login_url %>
+    <%  end %>
+
+  </div>
+  </div>
+  
+  <div id="menu">
+	<%= tabs_tag do |tab| %>
+            <%= tab.new       'New ticket', :controller => "tickets", :action => "new" %>
+            <%= tab.list  'All Tickets', :controller => "tickets", :action => "index" %>
+            <%= tab.list_new    'New Tickets', "/tickets_new" %>
+            <%= tab.list_open    'Open Tickets', "/tickets_open" %>
+            <%= tab.list_onhold    'Onhold Tickets', "/tickets_onhold" %>
+            <%= tab.list_closed    'Closed Tickets', "/tickets_closed" %>
+            <%= tab.users    'Manage Users', "/users" %>
+            <%= tab.departments    'Departments', "/departments" %>
+            <%= tab.statuses    'Statuses', "/statuses" %>
+    
+        <% end %>
+  </div>
+ 
+  <div id="page">
+    <%= render "tickets/search_form" %>
+<%= yield %>
+</div>
+  <div id="footer"></div>
+</body>
+</html>

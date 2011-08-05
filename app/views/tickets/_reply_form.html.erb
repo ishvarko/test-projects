@@ -1,0 +1,69 @@
+<%= form_for(@ticket) do |f| %>
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% @ticket.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="left_block">
+<dl>
+  
+  <df><h3><%=@ticket.number %></h3></df>
+  
+  <dt>Customer Name</dt>
+  <df><%=@ticket.customer_name %></df>
+  
+  
+  <dt>Customer Email</dt>
+  <df><%=@ticket.customer_email %></df>
+  
+  <dt>Subject</dt>
+  <df><%=@ticket.subject %></df>
+  
+  <dt>Request Text</dt>
+  <df><%= @ticket.request_text %></df>
+  
+  <dt>Department</dt>
+  <df><%= get_department_by_id(@ticket.department) %></df>
+  
+  <dt>Change status to:</dt>
+  <df>
+    <%= collection_select(:ticket, :status, @statuses, :id, :name, :class => "status")  %>
+  </df>
+  
+  <dt>Reassign ticket to:</dt>
+  <df>
+    <%= collection_select(:ticket, :owner, @owners, :id, :name, :class => "owner")  %></df>
+  <dt>Reply Text</dt>
+  <df>
+    <%= text_area(:change, :reply_text, :cols => 40, :rows => 20) %>
+  </df>
+</dl>
+  <div class="actions">
+  <% if session[:user_id]%>  
+    <%= f.submit %>
+    <% else  %>
+    You must <%=link_to "login", login_url %> to reply
+  <%end%>
+  </div>
+</div>
+
+<div class="right_block">
+  <h2>History:</h2>
+  <% @changes.each do |change| %>
+  <p> <b>Owner:</b> <%= get_owner_by_id(change.owner_old) %> | Status: <b><%= get_status_by_id(change.status_old) %> </b></p>
+  <p><b><%= get_owner_by_id(change.user) %> replied:</b>
+    <%=  change.reply_text %>
+  </p>
+  <hr/>
+    <% end %>
+</div>  
+<div class="clr"></div>
+  
+<% end %>

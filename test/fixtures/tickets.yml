@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: MyString
+  customer_name: MyString
+  customer_email: MyString
+  subject: MyString
+  request_text: MyText
+  department: 1
+  status: 1
+  owner: 1
+
+two:
+  number: MyString
+  customer_name: MyString
+  customer_email: MyString
+  subject: MyString
+  request_text: MyText
+  department: 1
+  status: 1
+  owner: 1

@@ -1,0 +1,3 @@
+<%= form_tag(:controller =>'tickets', :action => 'search') do%>
+<%= search_field_tag('number', 'Search by number',{:onclick => "$(this).value = ''"}) %>
+<%  end %>

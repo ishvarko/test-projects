@@ -1,0 +1,28 @@
+dt{
+    font-weight: bold;
+}
+df{
+    padding-left: 30pt;
+}
+.tickets_listing {border-collapse: collapse;}
+.tickets_listing td, .tickets_listing th{
+    border: 1px solid black;
+    padding: 5px;
+}
+.tickets_listing th{
+    background-color: #CCCCCC;
+    color: #000;
+}
+
+.left_block{
+    float: left;
+    width: 400px;
+}
+
+.right_block{
+    width: 400px;
+    float: left;
+}
+.clr{
+    clear: both;
+}
